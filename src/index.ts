@@ -2,7 +2,7 @@ import express from 'express'
 import puppeteer from 'puppeteer'
 
 const app = express()
-const port = 3271
+const port = process.env.PORT || 3271
 
 app.all('/', (req, res) => {
     res.json('Mars Weather')

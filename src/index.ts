@@ -22,11 +22,15 @@ let weatherMock = {
 }
 
 app.get('/mars', async (req, res) => {
+    console.log('Starting')
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto('http://cab.inta-csic.es/rems/marsweather.html')
 
+    console.log('waiting')
     await page.waitForTimeout(2000)
+
+    console.log('done waiting')
 
     let date = await page.$('[id=mw-terrestrial_date]')
     let sol = await page.$('[id=mw-sol]')
